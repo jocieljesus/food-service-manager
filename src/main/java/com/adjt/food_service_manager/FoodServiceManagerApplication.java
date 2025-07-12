@@ -1,4 +1,4 @@
-package com._adjt.food_service_manager;
+package com.adjt.food_service_manager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
