@@ -60,7 +60,7 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
-
+<packaging>jar</packaging>
 
 	<build>
 		<plugins>
@@ -96,6 +96,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>food-service-manager</finalName>
 	</build>
 
 </project>
