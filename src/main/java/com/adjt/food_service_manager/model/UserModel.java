@@ -1,13 +1,20 @@
 package com.adjt.food_service_manager.model;
 
-import com.adjt.food_service_manager.entities.Endereco;
-import jakarta.persistence.*;
+import java.util.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 @Entity
 @Table(name = "usuarios")
@@ -34,7 +41,7 @@ public class UserModel {
     private Date lastModified;
 
     @Embedded
-    private Endereco endereco;
+    private EnderecoModel endereco;
 
 
 }
