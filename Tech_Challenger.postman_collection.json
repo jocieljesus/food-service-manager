@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "05a436e6-ed65-4892-821f-de09279591b8",
+		"name": "Tech Challenger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "listarTodos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "criarUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"name\": \"Ivan\",\r\n        \"email\": \"Idmoreira@gmail.com\",\r\n        \"login\": \"Idmoreira\",\r\n        \"password\": \"123\",\r\n        \"lastModified\": null,\r\n        \"userTypeEnum\": \"CLIENTE\",\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Honorio\",\r\n            \"numero\": 1850,\r\n            \"bairro\": \"Cachambi\",\r\n            \"cidade\": \"Rio De janeiro\",\r\n            \"estado\": \"Rio de Janeiro\",\r\n            \"cep\": \"20771421\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarPorID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarPorEmail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/email/idmoreira@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"email",
+						"idmoreira@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
