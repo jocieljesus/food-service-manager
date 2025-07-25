@@ -2,15 +2,8 @@ package com.adjt.food_service_manager.model;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import com.adjt.food_service_manager.enums.UserTypeEnum;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,7 +18,8 @@ import lombok.NoArgsConstructor;
 public class UserModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
     private Long id;
     private String name;
 
@@ -39,6 +33,10 @@ public class UserModel {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModified;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_usuario")
+    private UserTypeEnum userTypeEnum;
 
     @Embedded
     private EnderecoModel endereco;
