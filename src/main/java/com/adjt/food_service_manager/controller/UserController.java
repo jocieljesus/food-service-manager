@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import com.adjt.food_service_manager.model.UserModel;
 import com.adjt.food_service_manager.service.UserService;
 
@@ -27,26 +32,27 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
+    @Operation(summary = "Cadastrar um novo usuário")
     @PostMapping("/register")
     public ResponseEntity<UserModel> registerUser(@RequestBody @Valid UserModel userModel) {
         UserModel newUser = userService.save(userModel);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
-
+    @Operation(summary = "Listar todos os Usuarios")
     @GetMapping("/all")
     public ResponseEntity<List<UserModel>> getAllUsers() {
         List<UserModel> users = userService.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
-
+    @Operation(summary = "Buscar Usuario por ID")
     @GetMapping("/{id}")
     public ResponseEntity<UserModel> getUserById(@PathVariable Long id) {
         return userService.findById(id)
                 .map(user -> new ResponseEntity<>(user, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-    
+
+    @Operation(summary = "Lista Usuario por Email")
     @GetMapping("/email/{email}")
     public ResponseEntity<UserModel> getUserByEmail(@PathVariable String email) {
         return userService.findByEmail(email)
@@ -54,7 +60,7 @@ public class UserController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
     }
-
+    @Operation(summary = "Listar todos os Usuarios por ID")
     @PutMapping("/{id}")
     public ResponseEntity<UserModel> updateUser(@PathVariable Long id, 
                                                 @RequestBody @Valid UserModel userModel) {
@@ -63,6 +69,7 @@ public class UserController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @Operation(summary = "Deletar um Usuario por ID")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.delete(id);
