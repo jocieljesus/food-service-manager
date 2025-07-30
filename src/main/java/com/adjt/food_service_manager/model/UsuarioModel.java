@@ -1,7 +1,9 @@
 package com.adjt.food_service_manager.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
+import com.adjt.food_service_manager.dto.UsuarioRequestDTO;
 import com.adjt.food_service_manager.enums.TipoUsuarioEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,7 +34,7 @@ public class UsuarioModel {
     private String senha;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dtUltimaAlteracao;
+    private LocalDateTime dtUltimaAlteracao;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_usuario")
@@ -40,6 +42,18 @@ public class UsuarioModel {
 
     @Embedded
     private EnderecoModel endereco;
+
+    public UsuarioModel(UsuarioRequestDTO usuarioRequestDTO){
+
+        this.nome = usuarioRequestDTO.nome();
+        this.email = usuarioRequestDTO.email();
+        this.login = usuarioRequestDTO.login();
+        this.senha = usuarioRequestDTO.senha();
+        this.dtUltimaAlteracao = LocalDateTime.now();
+        this.tipoUsuarioEnum = usuarioRequestDTO.tipoUsuarioEnum();
+        this.endereco = new EnderecoModel(usuarioRequestDTO.endereco());
+
+    }
 
 
 }

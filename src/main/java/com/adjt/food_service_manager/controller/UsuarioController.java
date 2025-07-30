@@ -1,7 +1,11 @@
 package com.adjt.food_service_manager.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.adjt.food_service_manager.dto.UsuarioRequestDTO;
+import com.adjt.food_service_manager.dto.UsuarioResponseDTO;
+import com.adjt.food_service_manager.mapper.UsuarioMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,38 +35,39 @@ public class UsuarioController {
     }
     @Operation(summary = "Cadastrar um novo usuário")
     @PostMapping("/cadastrar")
-    public ResponseEntity<UsuarioModel> cadastrarUsuario(@RequestBody @Valid UsuarioModel usuarioModel) {
-        UsuarioModel novo = usuarioService.save(usuarioModel);
-        return new ResponseEntity<>(novo, HttpStatus.CREATED);
+    public ResponseEntity<UsuarioResponseDTO> cadastrarUsuario(@RequestBody @Valid UsuarioRequestDTO usuarioRequestDTO) {
+        UsuarioModel novoUsuario = UsuarioMapper.toEntity(usuarioRequestDTO);
+        return new ResponseEntity<>(UsuarioMapper.toResponseDTO(usuarioService.save(novoUsuario)), HttpStatus.CREATED);
     }
     @Operation(summary = "Listar todos os Usuarios")
     @GetMapping("/listar")
-    public ResponseEntity<List<UsuarioModel>> listarUsuarios() {
-        List<UsuarioModel> usuarios = usuarioService.listarTodos();
+    public ResponseEntity<List<UsuarioResponseDTO>> listarUsuarios() {
+        List<UsuarioResponseDTO> usuarios = usuarioService.listarTodos()
+                .stream().map(UsuarioMapper::toResponseDTO).collect(Collectors.toList());;
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
     @Operation(summary = "Buscar Usuario por ID")
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioModel> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<UsuarioResponseDTO> buscarPorId(@PathVariable Long id) {
         return usuarioService.buscarPorId(id)
-                .map(user -> new ResponseEntity<>(user, HttpStatus.OK))
+                .map(usuario -> new ResponseEntity<>(UsuarioMapper.toResponseDTO(usuario), HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @Operation(summary = "Buscar Usuario por Email")
     @GetMapping("/email/{email}")
-    public ResponseEntity<UsuarioModel> buscarPorEmail(@PathVariable String email) {
+    public ResponseEntity<UsuarioResponseDTO> buscarPorEmail(@PathVariable String email) {
         return usuarioService.buscarPorEmail(email)
-                .map(usuario -> new ResponseEntity<>(usuario, HttpStatus.OK))
+                .map(usuario -> new ResponseEntity<>(UsuarioMapper.toResponseDTO(usuario), HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
     }
     @Operation(summary = "Atualizar Usuarios")
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioModel> atualizarUsuarios(@PathVariable Long id,
-                                                   @RequestBody @Valid UsuarioModel usuarioModel) {
-        return usuarioService.update(id, usuarioModel)
-                .map(usuarioAtualizado -> new ResponseEntity<>(usuarioAtualizado, HttpStatus.OK))
+    public ResponseEntity<UsuarioResponseDTO> atualizarUsuarios(@PathVariable Long id,
+                                                   @RequestBody @Valid UsuarioRequestDTO usuarioRequestDTO) {
+        return usuarioService.update(id, UsuarioMapper.toEntity(usuarioRequestDTO))
+                .map(usuarioAtualizado -> new ResponseEntity<>(UsuarioMapper.toResponseDTO(usuarioAtualizado), HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
