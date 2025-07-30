@@ -11,15 +11,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/all",
+					"raw": "http://localhost:8080/usuarios/listar",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
-						"all"
+						"usuarios",
+						"listar"
 					]
 				}
 			},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n        \"name\": \"Ivan\",\r\n        \"email\": \"Idmoreira@gmail.com\",\r\n        \"login\": \"Idmoreira\",\r\n        \"password\": \"123\",\r\n        \"lastModified\": null,\r\n        \"userTypeEnum\": \"CLIENTE\",\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Honorio\",\r\n            \"numero\": 1850,\r\n            \"bairro\": \"Cachambi\",\r\n            \"cidade\": \"Rio De janeiro\",\r\n            \"estado\": \"Rio de Janeiro\",\r\n            \"cep\": \"20771421\"\r\n        }\r\n    }",
+					"raw": "  {\r\n        \"nome\": \"Ivan\",\r\n        \"email\": \"idmoreira@gmail.com\",\r\n        \"login\": \"Idmoreira\",\r\n        \"senha\": \"123\",\r\n        \"dtUltimaAlteracao\": null,\r\n        \"tipoUsuarioEnum\": \"CLIENTE\",\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Honorio\",\r\n            \"numero\": 1850,\r\n            \"bairro\": \"Cachambi\",\r\n            \"cidade\": \"Rio De janeiro\",\r\n            \"estado\": \"Rio de Janeiro\",\r\n            \"cep\": \"20771421\"\r\n        }\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,15 +40,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/users/register",
+					"raw": "http://localhost:8080/usuarios/cadastrar",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
-						"register"
+						"usuarios",
+						"cadastrar"
 					]
 				}
 			},
@@ -60,14 +60,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/1",
+					"raw": "http://localhost:8080/usuarios/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
+						"usuarios",
 						"1"
 					]
 				}
@@ -80,27 +80,38 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/email/idmoreira@gmail.com",
+					"raw": "http://localhost:8080/usuarios/email/Idmoreira@gmail.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
+						"usuarios",
 						"email",
-						"idmoreira@gmail.com"
+						"Idmoreira@gmail.com"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Delete",
+			"name": "excluir",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/usuarios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"1"
+					]
+				}
 			},
 			"response": []
 		}
