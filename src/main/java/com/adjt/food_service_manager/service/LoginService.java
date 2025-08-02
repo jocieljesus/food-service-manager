@@ -10,23 +10,29 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-
 public class LoginService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
 
     public LoginResponseDTO autenticar(LoginRequestDTO requestDTO){
-        Optional<UsuarioModel> usuarioModel = usuarioRepository.findByLogin(requestDTO.getLogin());
+        try{
+            Optional<UsuarioModel> usuarioModel = usuarioRepository.findByLogin(requestDTO.login());
 
-        if(usuarioModel.isPresent()){
-            UsuarioModel usuario = usuarioModel.get();
+            if(usuarioModel.isPresent()){
+                UsuarioModel usuario = usuarioModel.get();
 
-            if(usuario.getSenha().equals(requestDTO.getSenha())){
-                return new LoginResponseDTO(true, "Login ok. Bem vindo ao food-service-manager", usuario.getNome());
+                if(usuario.getSenha().equals(requestDTO.senha())){
+                    return new LoginResponseDTO(true, "Login ok. Bem vindo ao food-service-manager", usuario.getNome());
 
+                }
             }
+            return new LoginResponseDTO(false,"Login ou senha inválidos",null);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return new LoginResponseDTO(false,"Erro interno ao processar login", null);
         }
-        return new LoginResponseDTO(false,"Login ou senha inválidos",null);
+
     }
 }
