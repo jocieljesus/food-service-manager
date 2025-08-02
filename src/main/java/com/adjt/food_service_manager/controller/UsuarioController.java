@@ -3,9 +3,12 @@ package com.adjt.food_service_manager.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.adjt.food_service_manager.dto.LoginRequestDTO;
+import com.adjt.food_service_manager.dto.LoginResponseDTO;
 import com.adjt.food_service_manager.dto.UsuarioRequestDTO;
 import com.adjt.food_service_manager.dto.UsuarioResponseDTO;
 import com.adjt.food_service_manager.mapper.UsuarioMapper;
+import com.adjt.food_service_manager.service.LoginService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,9 +32,11 @@ import jakarta.validation.Valid;
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
+    private LoginService loginService;
 
-    public UsuarioController(UsuarioService usuarioService) {
+    public UsuarioController(UsuarioService usuarioService, LoginService loginService) {
         this.usuarioService = usuarioService;
+        this.loginService = loginService;
     }
     @Operation(summary = "Cadastrar um novo usuário")
     @PostMapping("/cadastrar")
@@ -76,6 +81,17 @@ public class UsuarioController {
     public ResponseEntity<Void> excluirUsuarios(@PathVariable Long id) {
         usuarioService.excluir(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @Operation(summary = "Verificar autenticação")
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO request){
+        LoginResponseDTO responseDTO = loginService.autenticar(request);
+        if(responseDTO.autenticado()){
+            return ResponseEntity.ok(responseDTO);
+        }else{
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(responseDTO);
+        }
     }
 
 }
