@@ -3,7 +3,7 @@
 Tech Challenge da pós-graduação em Arquitetura e Desenvolvimento Java (ADJ) da PÓS TECH da FIAP. 
 Ele tem como objetivo a criação de um sistema de gestão para um grupo de restaurantes.
 
-## 📋 Índice
+## Índice
 
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Tecnologias](#tecnologias)
@@ -11,15 +11,14 @@ Ele tem como objetivo a criação de um sistema de gestão para um grupo de rest
 - [Configuração do Ambiente](#configuração-do-ambiente)
 - [API Endpoints](#api-endpoints)
 - [Documentação da API](#documentação-da-api)
-- [Contribuição](#contribuição)
 
-## 🎯 Sobre o Projeto
+## Sobre o Projeto
 
 O **Food Service Manager** é uma API REST desenvolvida para gerenciar operações de restaurantes. O objetivo é desenvolver um Backend completo e robusto utilizando o framework Spring Boot. 
 O sistema permitirá que os restaurantes gerenciem suas operações, enquanto os clientes poderão consultar informações, fazer pedidos e deixar avaliações. 
 A entrega do projeto será realizada em fases, para garantir um desenvolvimento escalável através do aprendizado contínuo no curso da pós graduação.
 
-## 🚀 Tecnologias
+## Tecnologias
 
 ### Backend
 - **Java 21** - Linguagem de programação
@@ -35,7 +34,7 @@ A entrega do projeto será realizada em fases, para garantir um desenvolvimento 
 - **Maven** - Gerenciamento de dependências
 - **Swagger/OpenAPI** - Documentação da API
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 ```
 src/main/java/com/adjt/food_service_manager/
@@ -47,7 +46,7 @@ src/main/java/com/adjt/food_service_manager/
 └── enums/          # Enumerações
 ```
 
-## ⚙️ Configuração do Ambiente
+## Configuração do Ambiente
 
 ### Pré-requisitos
 
@@ -55,7 +54,7 @@ src/main/java/com/adjt/food_service_manager/
 - **Docker & Docker Compose**
 - **Git**
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Opção 1: Docker Compose (Recomendado)
 
@@ -71,13 +70,13 @@ docker-compose up -d
 docker-compose logs -f app
 ```
 
-### 🌐 Acesso
+### Acesso
 
 - **API**: http://localhost:8080
 - **Swagger UI**: http://localhost:8080/swagger-ui.html
 - **PostgreSQL**: localhost:5432
 
-## 📚 API Endpoints
+## API Endpoints
 
 ### Usuários
 
@@ -113,7 +112,7 @@ Content-Type: application/json
 }
 ```
 
-## 📖 Documentação da API
+## Documentação da API
 
 A documentação completa da API está disponível via **Swagger UI**:
 
@@ -125,9 +124,9 @@ A documentação completa da API está disponível via **Swagger UI**:
 O arquivo [`Tech_Challenger.postman_collection.json`](Tech_Challenger.postman_collection.json) contém exemplos de todas as requisições.
 
 
-## 👥 Equipe
+## Equipe
 
-- **Desenvolvedor**: Cauana Dias Costa
+- **Desenvolvedora**: Cauana Dias Costa
 - **Desenvolvedor**: Fabiano Meirellis Dolzanes
 - **Desenvolvedor**: Ivan Domingos Moreira
 - **Desenvolvedor**: Jociel Alves de Jesus
