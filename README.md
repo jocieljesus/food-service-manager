@@ -9,11 +9,8 @@ Ele tem como objetivo a criação de um sistema de gestão para um grupo de rest
 - [Tecnologias](#tecnologias)
 - [Arquitetura](#arquitetura)
 - [Configuração do Ambiente](#configuração-do-ambiente)
-- [Como Executar](#como-executar)
 - [API Endpoints](#api-endpoints)
-- [Banco de Dados](#banco-de-dados)
 - [Documentação da API](#documentação-da-api)
-- [Estrutura do Projeto](#estrutura-do-projeto)
 - [Contribuição](#contribuição)
 
 ## 🎯 Sobre o Projeto
@@ -49,12 +46,6 @@ src/main/java/com/adjt/food_service_manager/
 ├── dto/            # Data Transfer Objects
 └── enums/          # Enumerações
 ```
-
-### Modelos Principais
-
-- **UsuarioModel**: Entidade principal com tipos (PROPRIETARIO/CLIENTE)
-- **EnderecoModel**: Endereço embarcado (`@Embeddable`)
-- **TipoUsuarioEnum**: Enum para tipos de usuário
 
 ## ⚙️ Configuração do Ambiente
 
