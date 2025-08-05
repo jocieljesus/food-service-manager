@@ -56,7 +56,7 @@ src/main/java/com/adjt/food_service_manager/
 
 ## Como Executar
 
-### Opção 1: Docker Compose (Recomendado)
+### Docker Compose (Recomendado)
 
 ```bash
 # Clone o repositório
