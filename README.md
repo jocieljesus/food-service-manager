@@ -60,7 +60,7 @@ src/main/java/com/adjt/food_service_manager/
 
 ```bash
 # Clone o repositório
-git clone <repository-url>
+git clone https://github.com/jocieljesus/food-service-manager.git
 cd food-service-manager
 
 # Execute com Docker Compose
