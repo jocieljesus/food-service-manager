@@ -1,4 +1,4 @@
-# Food Service Manager 🍽️
+# Food Service Manager
 
 Tech Challenge da pós-graduação em Arquitetura e Desenvolvimento Java (ADJ) da PÓS TECH da FIAP. 
 Ele tem como objetivo a criação de um sistema de gestão para um grupo de restaurantes.
