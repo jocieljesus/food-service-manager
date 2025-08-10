@@ -1,4 +1,4 @@
-package com.adjt.food_service_manager.configuracoes;
+package com.adjt.food_service_manager.settings;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;

@@ -13,7 +13,7 @@ public record UsuarioResponseDTO(
         String nome,
         String email,
         String login,
-        LocalDateTime dtUltimaalteracao,
+        LocalDateTime dtUltimaAlteracao,
         TipoUsuarioEnum tipoUsuarioEnum,
         EnderecoResponseDTO endereco
 ) {}
