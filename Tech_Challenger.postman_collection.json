@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "listarTodos",
+			"name": "GET - listarTodos",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -26,13 +26,13 @@
 			"response": []
 		},
 		{
-			"name": "criarUsuario",
+			"name": "POST - criarUsuario",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n        \"nome\": \"Ivan\",\r\n        \"email\": \"idmoreira@gmail.com\",\r\n        \"login\": \"Idmoreira\",\r\n        \"senha\": \"123\",\r\n        \"dtUltimaAlteracao\": null,\r\n        \"tipoUsuarioEnum\": \"CLIENTE\",\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Honorio\",\r\n            \"numero\": 1850,\r\n            \"bairro\": \"Cachambi\",\r\n            \"cidade\": \"Rio De janeiro\",\r\n            \"estado\": \"Rio de Janeiro\",\r\n            \"cep\": \"20771421\"\r\n        }\r\n    }",
+					"raw": "  {\r\n        \"nome\": \"Ivan\",\r\n        \"email\": \"idmoreira@gmail.com\",\r\n        \"login\": \"Idmoreira\",\r\n        \"senha\": \"123\",\r\n        \"dtUltimaAlteracao\": null,\r\n        \"tipoUsuarioEnum\": \"CLIENTE\",\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Honorio\",\r\n            \"numero\": 1850,\r\n            \"bairro\": \"Cachambi\",\r\n            \"cidade\": \"Rio De janeiro\",\r\n            \"estado\": \"RJ\",\r\n            \"cep\": \"20771-421\"\r\n        }\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,7 +55,7 @@
 			"response": []
 		},
 		{
-			"name": "listarPorID",
+			"name": "GET - listarPorID",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -75,12 +75,12 @@
 			"response": []
 		},
 		{
-			"name": "listarPorEmail",
+			"name": "GET - listarPorEmail",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/usuarios/email/Idmoreira@gmail.com",
+					"raw": "http://localhost:8080/usuarios/email/idmoreira@gmail.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -89,14 +89,14 @@
 					"path": [
 						"usuarios",
 						"email",
-						"Idmoreira@gmail.com"
+						"idmoreira@gmail.com"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "excluir",
+			"name": "DELETE - excluir",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -110,6 +110,64 @@
 					"path": [
 						"usuarios",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - LOGAR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"login\": \"Idmoreira\",\r\n  \"senha\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autenticacao/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autenticacao",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - AlterarSenha",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"login\": \"Idmoreira\",\r\n  \"senha\": \"123\",\r\n  \"novaSenha\" : \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autenticacao/alterarsenha",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autenticacao",
+						"alterarsenha"
 					]
 				}
 			},
