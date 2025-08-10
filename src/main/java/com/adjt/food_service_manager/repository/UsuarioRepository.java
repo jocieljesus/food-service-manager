@@ -10,4 +10,6 @@ import com.adjt.food_service_manager.model.UsuarioModel;
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
     Optional<UsuarioModel> findByLogin (String login);
     Optional<UsuarioModel> findByEmail(String email);
+
+    Optional<UsuarioModel>findByLoginAndSenha(String login,String senha);
 }

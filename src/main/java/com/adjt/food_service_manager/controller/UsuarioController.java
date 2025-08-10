@@ -106,15 +106,6 @@ public class UsuarioController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @Operation(summary = "Verificar autenticação")
-    @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO request){
-        LoginResponseDTO responseDTO = loginService.autenticar(request);
-        if(responseDTO.autenticado()){
-            return ResponseEntity.ok(responseDTO);
-        }else{
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(responseDTO);
-        }
-    }
+
 
 }
