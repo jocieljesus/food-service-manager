@@ -43,6 +43,8 @@ src/main/java/com/adjt/food_service_manager/
 ├── repository/     # Acesso a dados
 ├── model/          # Entidades JPA
 ├── dto/            # Data Transfer Objects
+├── mapper/         # Transformador de objetos
+├── settings/       # Configurações swagger
 └── enums/          # Enumerações
 ```
 
@@ -88,6 +90,13 @@ docker-compose logs -f app
 | `GET` | `/usuarios/email/{email}` | Buscar usuário por email |
 | `PUT` | `/usuarios/{id}` | Atualizar usuário |
 | `DELETE` | `/usuarios/{id}` | Excluir usuário |
+
+### Autenticação
+
+| Método | Endpoint         | Descrição                            |
+|--------|------------------|--------------------------------------|
+| `POST` | `/autenticacao/login` | Realizar o login de usuário          |
+| `POST` | `/autenticacao/alterarsenha` | Alterar a senha de usuário |
 
 ### Exemplo de Requisição
 
