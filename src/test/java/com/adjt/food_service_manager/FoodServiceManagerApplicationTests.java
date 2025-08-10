@@ -1,4 +1,4 @@
-package com._adjt.food_service_manager;
+package com.adjt.food_service_manager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
