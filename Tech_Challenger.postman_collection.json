@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n        \"nome\": \"Ivan\",\r\n        \"email\": \"idmoreira@gmail.com\",\r\n        \"login\": \"Idmoreira\",\r\n        \"senha\": \"123\",\r\n        \"dtUltimaAlteracao\": null,\r\n        \"tipoUsuarioEnum\": \"CLIENTE\",\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Honorio\",\r\n            \"numero\": 1850,\r\n            \"bairro\": \"Cachambi\",\r\n            \"cidade\": \"Rio De janeiro\",\r\n            \"estado\": \"RJ\",\r\n            \"cep\": \"20771-421\"\r\n        }\r\n    }",
+					"raw": "  {\r\n        \"nome\": \"Ivan\",\r\n        \"email\": \"idmoreira@gmail.com\",\r\n        \"login\": \"Idmoreira\",\r\n        \"senha\": \"123\",\r\n        \"tipoUsuarioEnum\": \"CLIENTE\",\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Honorio\",\r\n            \"numero\": 1850,\r\n            \"bairro\": \"Cachambi\",\r\n            \"cidade\": \"Rio De janeiro\",\r\n            \"estado\": \"RJ\",\r\n            \"cep\": \"20771-421\"\r\n        }\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -168,6 +168,35 @@
 					"path": [
 						"autenticacao",
 						"alterarsenha"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Alterar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"nome\": \"Ivan2\",\r\n        \"email\": \"idmoreira2@gmail.com\",\r\n        \"login\": \"Idmoreira2\",\r\n        \"senha\": \"123\",\r\n        \"tipoUsuarioEnum\": \"CLIENTE\",\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Honorio\",\r\n            \"numero\": 1850,\r\n            \"bairro\": \"Cachambi\",\r\n            \"cidade\": \"Rio De janeiro\",\r\n            \"estado\": \"RJ\",\r\n            \"cep\": \"20771-421\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"1"
 					]
 				}
 			},
