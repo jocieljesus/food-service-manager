@@ -1,5 +1,6 @@
 package com.adjt.food_service_manager.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import com.adjt.food_service_manager.service.exceptions.ResourceNotFoundException;
@@ -44,7 +45,7 @@ public class UsuarioService {
                     usuario.setSenha(usuarioModel.getSenha());
                     usuario.setLogin(usuarioModel.getLogin());
                     usuario.setEndereco(usuarioModel.getEndereco());
-
+                    usuario.setDtUltimaAlteracao(LocalDateTime.now());
                     return usuarioRepository.save(usuario);
                 });
     }
